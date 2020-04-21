@@ -50,9 +50,6 @@ var marker = new mapboxgl.Marker()
 
 //Openweather API
 //Vandenberg Airforce Base weer
-window.onload = function() {
-    vandenbergAirforce();
-}
 
 function drawVandenbergWeather(d) {
     var celcius = Math.round(parseFloat(d.main.temp)-273.15);
@@ -63,7 +60,7 @@ function drawVandenbergWeather(d) {
 }
 
 function vandenbergAirforce() {
-    fetch('https://api.openweathermap.org/data/2.5/weather?lat=-120.57244&lon=34.742027&APPID=84a7539cd5f38f71aa76aec925184a5f')  
+    fetch('https://api.openweathermap.org/data/2.5/weather?lat=34.742027&lon=-120.57244&APPID=84a7539cd5f38f71aa76aec925184a5f')  
     .then(function(resp) { return resp.json() }) // Convert data to json
     .then(function(data) {
         drawVandenbergWeather(data); // Call drawWeather
@@ -74,9 +71,6 @@ function vandenbergAirforce() {
 }
 
 //Kennedy Space Station weer
-window.onload = function() {
-    kennedySpaceStation();
-}
 
 function drawKennedyWeather(d) {
     var celcius = Math.round(parseFloat(d.main.temp)-273.15);
@@ -87,7 +81,7 @@ function drawKennedyWeather(d) {
 }
 
 function kennedySpaceStation() {
-    fetch('https://api.openweathermap.org/data/2.5/weather?lat=-80.604344&lon=28.608397&APPID=84a7539cd5f38f71aa76aec925184a5f')  
+    fetch('https://api.openweathermap.org/data/2.5/weather?lat=28.608397&lon=-80.604344&APPID=84a7539cd5f38f71aa76aec925184a5f')  
     .then(function(resp) { return resp.json() }) // Convert data to json
     .then(function(data) {
         drawKennedyWeather(data); // Call drawWeather
@@ -98,9 +92,6 @@ function kennedySpaceStation() {
 }
 
 //Esrange weer
-window.onload = function() {
-    esrange();
-}
 
 function drawEsrangeWeather(d) {
     var celcius = Math.round(parseFloat(d.main.temp)-273.15);
@@ -111,7 +102,7 @@ function drawEsrangeWeather(d) {
 }
 
 function esrange() {
-    fetch('https://api.openweathermap.org/data/2.5/weather?lat=67.88359&lon=21.12423000000001')  
+    fetch('https://api.openweathermap.org/data/2.5/weather?lat=67.88359&lon=21.12423000000001&APPID=84a7539cd5f38f71aa76aec925184a5f')  
     .then(function(resp) { return resp.json() }) // Convert data to json
     .then(function(data) {
         drawEsrangeWeather(data); // Call drawWeather
@@ -122,9 +113,6 @@ function esrange() {
 }
 
 //Kosmodroom plesetsk weer
-window.onload = function() {
-    kosmodroom();
-}
 
 function drawKosmodroomWeather(d) {
     var celcius = Math.round(parseFloat(d.main.temp)-273.15);
@@ -143,4 +131,11 @@ function kosmodroom() {
     .catch(function() {
         // catch any errors
     });
+}
+
+window.onload = function() {
+    vandenbergAirforce();
+    kennedySpaceStation();
+    esrange();
+    kosmodroom();
 }
