@@ -12,6 +12,9 @@ var map = new mapboxgl.Map({
   zoom: 1,
 });
 
+// Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl());
+
 //Markers toevoegen van space stations waar geland kan worden
 //Vandenberg Airforce base
 var popup = new mapboxgl.Popup().setHTML('<h3>Vandenberg Airforce base</h3>');
